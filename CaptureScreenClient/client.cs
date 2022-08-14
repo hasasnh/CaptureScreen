@@ -55,7 +55,8 @@ namespace CaptureScreenClient
             BinaryFormatter fs = new BinaryFormatter();
             fs.Serialize(tcpClient.GetStream(), memoryStream);
 
-
+            RecievingMethod();
+            SendingMethod();
         }
     }
 }
