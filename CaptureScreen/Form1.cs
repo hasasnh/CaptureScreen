@@ -35,7 +35,15 @@ namespace CaptureScreen
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            tcpServer.SendingMethod("ScreenCapture");
+            Message msg = new Message();
+            msg.MessageName = "ScreenCapture";
+
+            tcpServer.SendingMethod("");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            tcpServer.SendingMethod("LiveShare");
         }
     }
 }

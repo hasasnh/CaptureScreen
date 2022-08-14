@@ -11,7 +11,7 @@ namespace CaptureScreenClient
 {
     public class ImageService
     {
-        public MemoryStream CreateScreen()
+        public MemoryStream CreateScreenAsMemoryStream()
         {
             Bitmap bm = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
             Graphics g = Graphics.FromImage(bm);
@@ -20,6 +20,14 @@ namespace CaptureScreenClient
             bm.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
 
             return memoryStream;
+        }
+
+        public Bitmap CreateScreen()
+        {
+            Bitmap bm = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+            Graphics g = Graphics.FromImage(bm);
+            g.CopyFromScreen(0, 0, 0, 0, bm.Size);
+            return bm;
         }
     }
 }

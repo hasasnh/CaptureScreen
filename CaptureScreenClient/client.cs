@@ -20,7 +20,7 @@ namespace CaptureScreenClient
         private string ipAddress = "127.0.0.1";
         public TcpClient tcpClient;
         private MemoryStream memoryStream;
-
+        private string msg;
 
         public Client()
         {
@@ -41,16 +41,15 @@ namespace CaptureScreenClient
 
 
             BinaryFormatter f = new BinaryFormatter();
-            var msg = f.Deserialize(tcpClient.GetStream());
+            msg = (string)f.Deserialize(tcpClient.GetStream());
 
         }
 
 
-        private void SendingMethod()
+        public void SendingMethod()
         {
+           // request.GetData();
 
-            ImageService imageService = new ImageService();
-            memoryStream = imageService.CreateScreen();
 
             BinaryFormatter fs = new BinaryFormatter();
             fs.Serialize(tcpClient.GetStream(), memoryStream);

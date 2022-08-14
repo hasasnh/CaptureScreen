@@ -29,5 +29,17 @@ namespace CaptureScreenClient
             //client.CreateScreen();
             //client.SendingMethod();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Client client = new Client();
+
+            //IRequest request = new ScreenCapture();
+            IRequest request = new ClientInfo();
+
+            client.SendingMethod();
+
+
+        }
     }
 }
