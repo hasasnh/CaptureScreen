@@ -49,11 +49,12 @@ namespace CaptureScreenClient
         private void SendingMethod()
         {
 
+            ImageService imageService = new ImageService();
+            memoryStream = imageService.CreateScreen();
+
             BinaryFormatter fs = new BinaryFormatter();
             fs.Serialize(tcpClient.GetStream(), memoryStream);
 
-            ImageService imageService = new ImageService();
-            imageService.CreateScreen();
 
         }
     }
