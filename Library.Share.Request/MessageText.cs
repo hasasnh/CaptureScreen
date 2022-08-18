@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CaptureScreenClient
+namespace Library.Share.Request
 {
-    public interface IRequest
+    [Serializable]
+    public class MessageText : Message
     {
-        Message GetData();
+        public string Data { get; set; }
     }
 }

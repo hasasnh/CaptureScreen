@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using Library.Share.Request;
 
 namespace CaptureScreenClient
 {
@@ -20,8 +21,7 @@ namespace CaptureScreenClient
         private string ipAddress = "127.0.0.1";
         public TcpClient tcpClient;
         private MemoryStream memoryStream;
-        private string msg;
-
+        private IRequest msg;
         public Client()
         {
 
@@ -41,15 +41,17 @@ namespace CaptureScreenClient
 
 
             BinaryFormatter f = new BinaryFormatter();
-            msg = (string)f.Deserialize(tcpClient.GetStream());
+            f.Binder = new AllowAllAssemblyVersionsDeserializationBinder();
+             msg = (IRequest)f.Deserialize(tcpClient.GetStream());
+
+          
 
         }
 
 
         public void SendingMethod()
         {
-           // request.GetData();
-
+            msg.GetData();
 
             BinaryFormatter fs = new BinaryFormatter();
             fs.Serialize(tcpClient.GetStream(), memoryStream);

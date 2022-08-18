@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using Library.Share.Request;
 
 namespace CaptureScreenClient
 {
@@ -38,7 +39,6 @@ namespace CaptureScreenClient
             IRequest request = new ClientInfo();
 
             client.SendingMethod();
-
 
         }
     }

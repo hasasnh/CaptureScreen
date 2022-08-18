@@ -7,8 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CaptureScreenClient
+namespace Library.Share.Request
 {
+    [Serializable]
     public class ImageService
     {
         public MemoryStream CreateScreenAsMemoryStream()

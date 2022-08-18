@@ -5,11 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CaptureScreen
+namespace Library.Share.Request
 {
+    [Serializable]
     public class MessageImage : Message
     {
-       public Bitmap Data { get; set; }
+        public Bitmap Data { get; set; }
 
     }
 }

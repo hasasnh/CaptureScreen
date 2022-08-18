@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library.Share.Request;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +10,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -35,15 +37,31 @@ namespace CaptureScreen
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Message msg = new Message();
-            msg.MessageName = "ScreenCapture";
+            IRequest request = new ScreenCapture();
 
-            tcpServer.SendingMethod("");
+            tcpServer.SendingMethod(request);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            tcpServer.SendingMethod("LiveShare");
+            Thread thread = new Thread(delegate ()
+            {
+                while (true)
+                {
+                    tcpServer.SendingMethod(null );
+                }
+            });
+            thread.Start();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

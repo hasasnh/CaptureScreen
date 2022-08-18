@@ -5,8 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CaptureScreenClient
+namespace Library.Share.Request
 {
+    [Serializable]
     public class ScreenCapture : IRequest
     {
         public Message GetData()

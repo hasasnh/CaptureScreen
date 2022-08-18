@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library.Share.Request;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -43,10 +44,10 @@ namespace CaptureScreen
             ReceivingMethod();
         }
 
-        public void SendingMethod(string message)
+        public void SendingMethod(IRequest request)
         {
             BinaryFormatter f = new BinaryFormatter();
-            f.Serialize(Client.GetStream(), message);
+            f.Serialize(Client.GetStream(), request);
         }
 
         public void ReceivingMethod()

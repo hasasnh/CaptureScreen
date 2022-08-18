@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CaptureScreenClient
+namespace Library.Share.Request
 {
+    [Serializable]
     public class Message
     {
         public string MessageName { get; set; }

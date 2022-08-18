@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CaptureScreen
+namespace Library.Share.Request
 {
-    public class MessageText : Message
+    public interface IRequest
     {
-        public string Data { get; set; }
+        Message GetData();
     }
 }

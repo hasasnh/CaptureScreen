@@ -5,7 +5,7 @@ using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CaptureScreenClient
+namespace Library.Share.Request
 {
     public class ClientInfo : IRequest
     {
