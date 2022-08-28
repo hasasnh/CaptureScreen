@@ -42,16 +42,33 @@ namespace CaptureScreenClient
 
             BinaryFormatter f = new BinaryFormatter();
             f.Binder = new AllowAllAssemblyVersionsDeserializationBinder();
-             msg = (IRequest)f.Deserialize(tcpClient.GetStream());
+            msg = (IRequest)f.Deserialize(tcpClient.GetStream());
 
-          
+
 
         }
 
 
         public void SendingMethod()
         {
+           
+            memoryStream = new MemoryStream();
             msg.GetData();
+
+
+            //if (msg is ScreenCapture)
+            //{
+            //    var screenShot = (MessageImage)Helper.GetCaptureScreen();
+            //    screenShot.Data.ToMemoryStream();
+
+            //    //screenShot.Data.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
+            //}
+            //else if (msg is ClientInfo)
+            //{
+
+            //    var clientInfo = Helper.GetClientInfo();
+            //}
+
 
             BinaryFormatter fs = new BinaryFormatter();
             fs.Serialize(tcpClient.GetStream(), memoryStream);

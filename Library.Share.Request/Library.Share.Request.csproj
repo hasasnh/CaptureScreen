@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientInfo.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="ImageService.cs" />
     <Compile Include="IRequest.cs" />
     <Compile Include="Message.cs" />
