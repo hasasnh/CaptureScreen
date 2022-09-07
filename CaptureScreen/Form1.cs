@@ -61,8 +61,25 @@ namespace CaptureScreen
 
         private void button4_Click(object sender, EventArgs e)
         {
+            IRequest request = new DiskSpace();
+           // label1.Text = request.GetData();
+
+
+
+
+
+
+
+
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }
 
